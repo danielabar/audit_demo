@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: <%= ENV['DATABASE_NAME'] || "audit_demo" %>
+  username: <%= ENV['DATABASE_USER'] || "audit_demo" %>
+  password: <%= ENV['DATABASE_PASSWORD'] || "audit_demo" %>
+  port: <%= ENV['DATABASE_PORT'] || "5432" %>
+  host: <%= ENV['DATABASE_HOST'] || "127.0.0.1" %>
+
+development:
+  <<: *default
+  port: 5434
+
+test:
+  <<: *default
+  database: audit_demo_test
+  port: 5434
+
+production:
+  <<: *default
+  database: audit_demo_production
+  username: audit_demo
+  password: <%= ENV['AUDIT_DEMO_DATABASE_PASSWORD'] %>
