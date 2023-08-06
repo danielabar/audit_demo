@@ -16,6 +16,38 @@ bundle exec rails generate paper_trail:install --with-changes
 # create  db/migrate/20230801103225_add_object_changes_to_versions.rb
 ```
 
+Here are original migrations generated from above, we'll be making changes:
+
+```ruby
+# db/migrate/20230806120211_create_versions.rb
+class CreateVersions < ActiveRecord::Migration[7.0]
+  TEXT_BYTES = 1_073_741_823
+
+  def change
+    create_table :versions do |t|
+      t.string   :item_type, null: false
+      t.bigint   :item_id,   null: false
+      t.string   :event,     null: false
+      t.string   :whodunnit
+      t.text     :object, limit: TEXT_BYTES
+      t.datetime :created_at
+    end
+    add_index :versions, %i[item_type item_id]
+  end
+end
+```
+
+```ruby
+# db/migrate/20230806120212_add_object_changes_to_versions.rb
+class AddObjectChangesToVersions < ActiveRecord::Migration[7.0]
+  TEXT_BYTES = 1_073_741_823
+
+  def change
+    add_column :versions, :object_changes, :text, limit: TEXT_BYTES
+  end
+end
+```
+
 ### Changes from default
 
 1. Rename generated migration to `...create_product_versions.rb`
