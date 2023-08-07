@@ -159,6 +159,5 @@ bin/rails db:seed:replant
 ## TODO
 
 * json vs jsonb in migration
-* Fix double flash message
 * Integrate simple.css
 * Tabular layout for products index view (nice to have)
