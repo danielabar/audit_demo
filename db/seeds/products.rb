@@ -1,5 +1,3 @@
-Product.destroy_all
-
 20.times do
   Product.create!(
     name: Faker::Commerce.product_name,
