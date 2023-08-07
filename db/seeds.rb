@@ -1,5 +1,3 @@
-require "faker"
-
 if Rails.env.development?
   load Rails.root.join("db/seeds/users.rb")
   load Rails.root.join("db/seeds/products.rb")
