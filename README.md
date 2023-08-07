@@ -160,4 +160,3 @@ bin/rails db:seed:replant
 
 * json vs jsonb in migration
 * Integrate simple.css
-* Tabular layout for products index view (nice to have)
