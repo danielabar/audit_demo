@@ -1,6 +1,6 @@
 # README
 
-Companion project for a blog post about integrating PaperTrail for model auditing into a Rails application. Topics to be covered include:
+Companion project for a [blog post](https://danielabaron.me/blog/model-audit-paper-trail/) about integrating PaperTrail for model auditing into a Rails application. Topics to be covered include:
 
 * Using a separate `xxx_VERSIONS` table per model rather than default configuration that writes all audit records to a single `VERSIONS` table [ref](https://github.com/paper-trail-gem/paper_trail#6a-custom-version-classes)
 * Using JSON columns instead of default yml columns to store object and object_changes (check what the default is?) [ref](https://github.com/paper-trail-gem/paper_trail#6b-custom-serializer)
